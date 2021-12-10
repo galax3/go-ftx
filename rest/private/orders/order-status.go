@@ -8,7 +8,7 @@ import (
 
 type RequestForOrderStatus struct {
 	ClientID string
-	OrderID  int
+	OrderID  string
 }
 
 type ResponseForOrderStatus struct {
@@ -25,10 +25,10 @@ type ResponseForOrderStatus struct {
 	Size          float64 `json:"size"`
 	RemainingSize float64 `json:"remainingSize"`
 
-	ID         int  `json:"id"`
-	Ioc        bool `json:"ioc"`
-	ReduceOnly bool `json:"reduceOnly"`
-	PostOnly   bool `json:"postOnly"`
+	ID         int64 `json:"id"`
+	Ioc        bool  `json:"ioc"`
+	ReduceOnly bool  `json:"reduceOnly"`
+	PostOnly   bool  `json:"postOnly"`
 
 	CreatedAt time.Time `json:"createdAt"`
 }
@@ -37,7 +37,7 @@ func (req *RequestForOrderStatus) Path() string {
 	if req.ClientID != "" {
 		return fmt.Sprintf("/orders/by_client_id/%s", req.ClientID)
 	}
-	return fmt.Sprintf("/orders/%d", req.OrderID)
+	return fmt.Sprintf("/orders/%s", req.OrderID)
 }
 
 func (req *RequestForOrderStatus) Method() string {

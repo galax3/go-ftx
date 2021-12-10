@@ -17,7 +17,7 @@ type Trigger struct {
 	OrderSize  float64 `json:"orderSize"`
 	Error      string  `json:"error"`
 
-	OrderID int       `json:"orderId"`
+	OrderID int64     `json:"orderId"`
 	Time    time.Time `json:"time"`
 }
 

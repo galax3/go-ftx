@@ -17,7 +17,7 @@ type RequestForModifyTriggerOrder struct {
 }
 
 type ResponseForModifyTriggerOrder struct {
-	OrderID   int    `json:"orderId"`
+	OrderID   int64  `json:"orderId"`
 	Type      string `json:"type"`
 	OrderType string `json:"orderType"`
 	Future    string `json:"future"`
